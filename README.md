@@ -5,13 +5,13 @@
 ## 安装
 
 ```bash
-npx openskills install yoke233/novel-writing-skill
+npx openskills install yoke233/claude-skills
 ```
 
 全局安装：
 
 ```bash
-npx openskills install yoke233/novel-writing-skill --global
+npx openskills install yoke233/claude-skills --global
 ```
 
 或手动将 `skills/` 下的技能文件夹复制到 `.claude/skills/`（项目级）或 `~/.claude/skills/`（用户级）。
