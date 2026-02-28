@@ -1,20 +1,48 @@
 # Claude Code Skills
 
-存储 Claude Code 自定义技能（Skills）的仓库。
+存储 Claude Code 自定义技能（Skills）的仓库。可通过 [openskills](https://github.com/numman-ali/openskills) 一键安装到任何 AI 编辑器。
 
 ## 安装
+
+### Claude Code
+
+直接安装，开箱即用：
 
 ```bash
 npx openskills install yoke233/claude-skills
 ```
 
-全局安装：
+全局安装（所有项目可用）：
 
 ```bash
 npx openskills install yoke233/claude-skills --global
 ```
 
-或手动将 `skills/` 下的技能文件夹复制到 `.claude/skills/`（项目级）或 `~/.claude/skills/`（用户级）。
+### Cursor / Windsurf / Aider / Codex 等
+
+这些编辑器通过 `AGENTS.md` 加载技能，安装后需额外执行 `sync`：
+
+```bash
+npx openskills install yoke233/claude-skills
+npx openskills sync
+```
+
+如果同时使用 Claude Code 和其他编辑器，用 `--universal` 避免冲突：
+
+```bash
+npx openskills install yoke233/claude-skills --universal
+npx openskills sync
+```
+
+### 手动安装
+
+直接复制 `skills/` 下的技能文件夹到对应位置：
+
+| 场景 | 目标路径 |
+|------|----------|
+| Claude Code（项目级） | `.claude/skills/` |
+| Claude Code（用户级） | `~/.claude/skills/` |
+| 多编辑器共存 | `.agent/skills/` + 运行 `npx openskills sync` |
 
 ## 技能列表
 
@@ -25,7 +53,8 @@ npx openskills install yoke233/claude-skills --global
 ## 管理
 
 ```bash
-npx openskills list      # 查看已安装技能
-npx openskills update    # 更新全部技能
-npx openskills manage    # 交互式管理（删除）
+npx openskills list              # 查看已安装技能
+npx openskills update            # 更新全部技能
+npx openskills remove <name>     # 删除指定技能
+npx openskills manage            # 交互式管理
 ```
